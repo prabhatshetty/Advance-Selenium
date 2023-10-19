@@ -3,6 +3,7 @@ package com.exceloperations.demo;
 import java.io.FileInputStream;
 import java.io.IOException;
 
+import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -13,19 +14,33 @@ public class a_HowToReadDataFromExcel {
 
 		XSSFWorkbook workbook = new XSSFWorkbook(fis);
 
+		/* Getting Number of Sheets */
 		int numberOfSheets = workbook.getNumberOfSheets();
-		
+		// System.out.println(numberOfSheets);
+
+		/** Iterating through Sheets */
 		for (int i = 0; i < numberOfSheets; i++) {
-			if ((workbook.getSheetName(i)).equals("Sheet1")) {
+			String sheetName = workbook.getSheetName(i);
+
+			/** Going to the Particular Sheet */
+			if (sheetName.equalsIgnoreCase("Sheet1")) {
 				XSSFSheet sheet = workbook.getSheetAt(i);
+
 				int numberOfRows = sheet.getLastRowNum();
-				int numberOfRows1 = sheet.getPhysicalNumberOfRows();
-				int numberOfCells = sheet.getRow(0).getLastCellNum();
-				int numberOfCells1 = sheet.getRow(0).getPhysicalNumberOfCells();
-				System.out.println(numberOfRows);// 5
-				System.out.println(numberOfRows1);// 6
-				System.out.println(numberOfCells);// 2
-				System.out.println(numberOfCells1);// 2
+				System.out.println(numberOfRows);
+
+				int numberOfColumns = sheet.getRow(0).getLastCellNum();
+				System.out.println(numberOfColumns);
+
+				/** Iterating through Rows and Column */
+				for (int j = 0; j <= numberOfRows; j++) {
+					for (int k = 0; k <= numberOfColumns; k++) {
+						DataFormatter format = new DataFormatter();
+						String val = format.formatCellValue(sheet.getRow(j).getCell(k));
+						System.out.print(val + "              ");
+					}
+					System.out.println("");
+				}
 			}
 		}
 	}

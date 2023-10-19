@@ -25,7 +25,7 @@ public class a_DifferenceBetweenLastRowAndPhysicalNumberofRows {
 				System.out.println(numberOfRows);// 5
 				System.out.println(numberOfRows1);// 6
 				System.out.println(numberOfCells);// 2
-				System.out.println(numberOfCells1);// ;elrwmegrkhtnhpot[p
+				System.out.println(numberOfCells1);// 2
 			}
 		}
 	}
