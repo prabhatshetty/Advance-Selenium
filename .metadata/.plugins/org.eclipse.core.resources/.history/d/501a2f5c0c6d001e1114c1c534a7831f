@@ -1,0 +1,18 @@
+package com.exceloperations.demo;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class a_HowToReadDataFromExcel {
+	public static void main(String[] args) throws IOException {
+		String excelPath = System.getProperty("user.dir")+ "\\data";
+		System.out.println(excelPath);
+		FileInputStream fis = new FileInputStream("D:\\Advance Selenium\\Excel_Operations\\data\\Book.xlsx");
+
+		XSSFWorkbook workbook = new XSSFWorkbook(fis);
+		
+		System.out.println(workbook.getSheetAt(0));;
+	}
+}

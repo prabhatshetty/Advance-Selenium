@@ -1,0 +1,9 @@
+package com.exceloperations.demo;
+
+public class a_HowToReadDataFromExcel {
+	public static void main(String[] args) {
+		String path=System.getProperty("user.dir");
+		System.out.println(path);
+		FileInputStream fis = new FileInputStream();
+	}
+}
