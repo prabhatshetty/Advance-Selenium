@@ -8,7 +8,7 @@ import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class b_ReadAndWrite {
+public class c_ReadAndWrite {
 	static String[][] values;
 
 	public static void main(String[] args) throws IOException {
