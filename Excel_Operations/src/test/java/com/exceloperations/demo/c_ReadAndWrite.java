@@ -2,6 +2,7 @@ package com.exceloperations.demo;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 import org.apache.poi.ss.usermodel.DataFormatter;
@@ -13,9 +14,10 @@ public class c_ReadAndWrite {
 
 	public static void main(String[] args) throws IOException {
 		String excelData_1 = "D:\\Advance Selenium\\Excel_Operations\\data\\Book.xlsx";
-		String excelData_2 = "";
+		String excelData_2 = "D:\\Advance Selenium\\Excel_Operations\\data\\demo.xlsx";
 		values = readData(excelData_1);
-		getValues();
+		getValues(values);
+		writeData(excelData_2);
 	}
 
 	public static String[][] readData(String path) throws IOException {
@@ -34,12 +36,21 @@ public class c_ReadAndWrite {
 		return data;
 	}
 
-	public static void getValues() {
-		for (String[] rows : values) {
+	public static void getValues(String[][] arr) {
+		for (String[] rows : arr) {
 			for (String col : rows) {
 				System.out.print(col + " ");
 			}
 			System.out.println();
 		}
+	}
+
+	public static void writeData(String path) throws IOException {
+		FileOutputStream fos = new FileOutputStream(path);
+		XSSFWorkbook workbook = new XSSFWorkbook();
+		XSSFSheet sheet = workbook.createSheet("Sheet_2");
+		fos.flush();
+		fos.close();
+		
 	}
 }

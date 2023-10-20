@@ -10,6 +10,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -18,7 +19,9 @@ public class b_RealScenario {
 	@Test(dataProvider = "dataProvider")
 	public void TestCase_1(String usn, String pwd) throws InterruptedException {
 		if (usn != null && pwd != null) {
-			WebDriver driver = new ChromeDriver();
+			ChromeOptions option= new ChromeOptions();
+			option.addArguments("headless");
+			WebDriver driver = new ChromeDriver(option);
 			driver.manage().window().maximize();
 			driver.get("https://rahulshettyacademy.com/locatorspractice/");
 			WebElement userName = driver.findElement(By.id("inputUsername"));
